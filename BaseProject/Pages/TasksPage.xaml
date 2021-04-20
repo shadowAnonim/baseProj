@@ -1,0 +1,47 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BaseProject.Pages"
+      xmlns:Database="clr-namespace:BaseProject.Database" x:Class="BaseProject.Pages.TasksPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="taskDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="0" ItemsSource="{Binding}" EnableRowVirtualization="True" Grid.ColumnSpan="3" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="executorIdColumn" Width="SizeToHeader" Header="Executor Id" Binding="{Binding ExecutorId}"/>
+                <DataGridTemplateColumn x:Name="periodEndColumn" Width="SizeToHeader" Header="Period End">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding PeriodEnd, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="periodStartColumn" Width="SizeToHeader" Header="Period Start">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding PeriodStart, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="priorityColumn" Width="SizeToHeader" Header="Priority" Binding="{Binding Priority}"/>
+                <DataGridTextColumn x:Name="roleIdColumn" Width="SizeToHeader" Header="Role Id" Binding="{Binding RoleId}"/>
+                <DataGridTextColumn x:Name="statusIdColumn" Width="SizeToHeader" Header="Status Id" Binding="{Binding StatusId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="addBtn" Content="Добавить" Grid.Row="1" Click="addBtn_Click" Margin="84,0,83,5" VerticalAlignment="Bottom"/>
+        <Button x:Name="editBtn" Content="Обновить" Grid.Row="1" Grid.Column="1" Click="editBtn_Click"/>
+        <Button x:Name="deleteBtn" Content="Удалить" Grid.Row="1" Grid.Column="2" Click="deleteBtn_Click"/>
+    </Grid>
+</Page>

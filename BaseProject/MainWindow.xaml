@@ -1,0 +1,27 @@
+﻿<Window x:Class="BaseProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BaseProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button x:Name="backBtn" Content="Назад" Click="backBtn_Click"/>
+            <Button x:Name="exitBtn" Content="Выход" Click="exitBtn_Click"/>
+        </StackPanel>
+        <Label x:Name="titleLbl" Grid.Column="1"/>
+        <Image Grid.Column="2"/>
+        <Frame Grid.Row="1" Grid.ColumnSpan="3" x:Name="frame" Navigated="frame_Navigated" NavigationUIVisibility="Hidden" Source="/BaseProject;component/Pages/AutorisationPage.xaml"/> 
+    </Grid>
+</Window>
