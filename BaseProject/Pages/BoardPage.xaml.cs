@@ -61,7 +61,7 @@ namespace BaseProject.Pages
                          }).ToList();
                     tt.Width = 200;
                     tt.StatusChanged += sttusChanged;
-                    
+                    //Block block = new Block();
                     panel.Children.Add(tt);
                 }
             }
